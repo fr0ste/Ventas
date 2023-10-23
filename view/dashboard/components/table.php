@@ -30,7 +30,7 @@ class UserTableComponent {
           }
           echo '<td>';
           echo '<div class="btn-group">';
-          echo '<button class="btn btn-primary" onclick="location.href=\'index.php?action=actualizar&id=' . $usuario["id_user"] . '\'""><i class="fa fa-pencil"></i></button>';
+          echo '<button class="btn btn-primary" onclick="location.href=\'index.php?action=actualizar&id=' . $usuario["id_user"] . '\'""><i class="fa fa-pencil-alt"></i></button>';
           echo '<button class="btn btn-danger"><i class="fa fa-trash"></i></button>';
           echo '</div>';
           echo '</td>';
