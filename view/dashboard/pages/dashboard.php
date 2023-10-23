@@ -139,6 +139,28 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <div class="content">
       <div class="container-fluid">
         <div class="row">
+
+        <?php
+// Paso 1: Incluye el archivo con la definición de UserTableComponent
+require 'UserTableComponent.php';
+
+// Paso 2: Define los encabezados y los usuarios
+$encabezados = array("#", "Nombre", "Email", "Contraseña");
+
+// Ejemplo de lista de usuarios (reemplázala con tus propios datos)
+$usuarios = array(
+    array(1, "Usuario 1", "usuario1@example.com", "clave1"),
+    array(2, "Usuario 2", "usuario2@example.com", "clave2"),
+    array(3, "Usuario 3", "usuario3@example.com", "clave3"),
+);
+
+// Crea una instancia del componente
+$tablaUsuarios = new UserTableComponent($encabezados, $usuarios);
+
+// Paso 3: Renderiza la tabla
+$tablaUsuarios->render();
+?>
+
          
         </div>
         <!-- /.row -->
