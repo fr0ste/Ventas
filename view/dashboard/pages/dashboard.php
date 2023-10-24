@@ -142,15 +142,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="content">
         <div class="container-fluid">
           <div class="row">
-            <P>DIV</P>
-                <?php
-            // Paso 1: Incluye el archivo con la definición de UserTableComponent
+            <?php
+            require_once '../../../shared/components/message.php';
+            // Ejemplo de uso del componente
+            AlertComponent::mostrarAlerta('danger', 'Danger alert preview. This alert is dismissable.');
+            AlertComponent::mostrarAlerta('info', 'Info alert preview. This alert is dismissable.');
+            AlertComponent::mostrarAlerta('warning', 'Warning alert preview. This alert is dismissable.');
+            AlertComponent::mostrarAlerta('success', 'Success alert preview. This alert is dismissable.');
+            ?>
+            <?php
+
             require '../components/table.php';
 
-            // Paso 2: Define los encabezados y los usuarios
+            //Define los encabezados y los usuarios
             $encabezados = array("#", "user name", "Email", "Contraseña", "location", "other fields", "options");
 
-            // Ejemplo de lista de usuarios (reemplázala con tus propios datos)
+            // Ejemplo de lista de usuarios
             $usuarios = array(
               array(1, "Usuario 1", "usuario1@example.com", "clave1", "location", "other field"),
               array(2, "Usuario 2", "usuario2@example.com", "clave2", "location", "other field"),
@@ -160,7 +167,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             // Crea una instancia del componente
             $tablaUsuarios = new UserTableComponent($encabezados, $usuarios);
 
-            // Paso 3: Renderiza la tabla
+            // Renderiza la tabla
             $tablaUsuarios->render();
             ?>
 
@@ -202,6 +209,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <script src="../../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- AdminLTE App -->
   <script src="../../../dist/js/adminlte.min.js"></script>
+  <script src="../../../dist/js/demo.js"></script>
+
 </body>
 
 </html>
