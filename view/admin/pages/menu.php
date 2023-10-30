@@ -80,6 +80,10 @@
               </a>
             </li>
             <li class="nav-item">
+    <!--'<'?php-->
+<!--session_destroy();-->
+<!--header('Location: '."index.php?action=ingreso");-->
+<!--?>-->
               <a href="#" class="nav-link">
                 <i class="fa fa-sign-out-alt"></i>
                 <p>

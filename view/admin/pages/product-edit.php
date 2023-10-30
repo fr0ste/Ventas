@@ -43,6 +43,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
       <!-- Main content -->
       <section class="content">
+        <?php
+          ini_set('display_errors', 1);
+          error_reporting(E_ALL);
+          require '../../../controller/productController.php';
+          $productController = new ProductController();
+          $product = $productController->getProductById();
+        ?>
         <div class="row">
           <div class="col-md-12">
             <div class="card card-primary">
@@ -61,44 +68,43 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <?php
                   ini_set('display_errors', 1);
                   error_reporting(E_ALL);
-                  require '../../../controller/productController.php';
 
                   $productController = new ProductController();
-                  $productController->createProduct();
+                  $productController->updateProduct();
 
                   ?>
+    <div class="form-group">
+        <input type="hidden" name="id" value="<?php echo $product["id_product"] ?>">
+        <label for="inputName">Nombre del producto</label>
+        <input name="name" type="text" id="inputName" class="form-control" value="<?php echo $product["name"] ?>">
+    </div>
+    <div class="form-group">
+        <label for="inputSerialNumber">Número de serie</label>
+        <input name="serialNumber" type="text" id="inputSerialNumber" class="form-control" value="<?php echo $product["serial_number"] ?>">
+    </div>
+    <div class="form-group">
+        <label for="inputDescription">Descripción del producto (opcional)</label>
+        <textarea name="description" id="inputDescription" class="form-control" rows="4"><?php echo $product["description"] ?></textarea>
+    </div>
+    <div class="form-group">
+        <label for="inputPrice">Precio</label>
+        <input name="price" type="text" id="inputPrice" class="form-control" value="<?php echo $product["price"] ?>">
+    </div>
+    <div class="form-group">
+        <label for="inputAcquisitionDate">Fecha de adquisición</label>
+        <input name="acquisitionDate" type="date" id="inputAcquisitionDate" class="form-control" value="<?php echo $product["acquisition_date"] ?>">
+    </div>
+    <div class="form-group">
+        <label for="inputStock">Stock</label>
+        <input name="stock" type="number" id="inputStock" class="form-control" value="<?php echo $product["stock"] ?>">
+    </div>
+    <div class="form-group">
+        <label for="inputAvailability">Disponibilidad</label>
+        <input name="availability" type="text" id="inputAvailability" class="form-control" value="<?php echo $product["availability"] ?>">
+    </div>
+    <input type="submit" value="Actualizar" class="btn btn-success float-right">
+</form>
 
-
-                  <div class="form-group">
-                    <label for="inputName">Nombre del producto</label>
-                    <input name="name" type="text" id="inputName" class="form-control">
-                  </div>
-                  <div class="form-group">
-                    <label for="inputStock">Numero de serie</label>
-                    <input name="serialNumber" type="text" id="inputSerialNumber" class="form-control">
-                  </div>
-                  <div class="form-group">
-                    <label for="inputDescription">Descripción del producto (opcional)</label>
-                    <textarea name="description" id="inputDescription" class="form-control" rows="4"></textarea>
-                  </div>
-                  <div class="form-group">
-                    <label for="inputPrice">Precio</label>
-                    <input name="price" type="text" id="inputPrice" class="form-control">
-                  </div>
-                  <div class="form-group">
-                    <label for="inputStock">Fecha de adquisición</label>
-                    <input name="acquisitionDate" type="date" id="inputAcquisitionDate" class="form-control">
-                  </div>
-                  <div class="form-group">
-                    <label for="inputStock">Stock</label>
-                    <input name="stock" type="number" id="inputStock" class="form-control">
-                  </div>
-                  <div class="form-group">
-                    <label for="inputAvailability">Disponibilidad</label>
-                    <input name="availability" type="text" id="inputAvailability" class="form-control">
-                  </div>
-                  <input type="submit" value="Crear nuevo" class="btn btn-success float-right">
-                </form>
               </div>
       </section>
       <!-- /.content -->

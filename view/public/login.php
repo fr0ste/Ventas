@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
     <html lang="en">
 
@@ -28,9 +27,10 @@
                 <div class="card-body">
                     <p class="login-box-msg">Inicar sesión</p>
 
-                    <form action="../../index3.html" method="post">
+                    <form method="POST">
+                        
                         <div class="input-group mb-3">
-                            <input type="email" class="form-control" placeholder="Correo">
+                            <input name="email" type="email" class="form-control" placeholder="Correo">
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-envelope"></span>
@@ -38,7 +38,7 @@
                             </div>
                         </div>
                         <div class="input-group mb-3">
-                            <input type="password" class="form-control" placeholder="Contraseña">
+                            <input name="password" type="password" class="form-control" placeholder="Contraseña">
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-lock"></span>
@@ -56,18 +56,29 @@
                             </div>
                             <!-- /.col -->
                             <div class="col-4">
-                                <button type="submit" class="btn btn-primary btn-block">Iniciar</button>
+                                <button type="submit" name="login" class="btn btn-primary btn-block">Iniciar</button>
                             </div>
                             <!-- /.col -->
                         </div>
-                    </form>
 
+                        <?php
+                        ini_set('display_errors', 1);
+                        error_reporting(E_ALL);
+                        
+                        require_once('../../controller/authcontroller.php');
+
+                        $auth = new AuthController();
+                        $auth->login();                        
+                        ?>
+                    
+                    </form>
                     <p class="mb-1">
-                        <a href="forgot-password.html">Olvidé mis contraseña</a>
+                        <a href="#">Olvidé mis contraseña</a>
                     </p>
                     <p class="mb-0">
-                        <a href="register.html" class="text-center">Registrarse</a>
+                        <a href="register.php" name="register" class="text-center">Registrarse</a>
                     </p>
+                    
                 </div>
                 <!-- /.card-body -->
             </div>
